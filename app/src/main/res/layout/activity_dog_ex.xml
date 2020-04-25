@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DogEx"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="견생역전!"
+        android:textSize="30dp"
+        android:textColor="#000"
+
+        android:layout_gravity="center_horizontal">
+    </TextView>
+    <ImageView
+        android:id="@+id/Dogimg"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/d001"></ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000000"
+        android:layout_marginTop="5dp">
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="체고 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/DogName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사모에드"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="체고 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="체중 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16~30kg "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="원산지 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="러시아 북부 및 시베리아"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성격 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사람을 잘 따르고 외로움을 많이 탐"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="걸리기 쉬운 질병 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="관절질환"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내한성 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="추위에 매우 강한 견종이다. 눈 속에서 자도 멀쩡하다"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="운동량 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30분 x 2"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="손질 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="핀 브러시, 슬리커 브러시, 일자빗"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="특징 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="시베리아 혹한의 환경을 견뎌냈을 만큼 두터운 순백의 털은 세심한 빗질과 정기적인 샴푸로 유지합니다
+"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성격 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성격은 매우 쾌활하고 어리광이 심하며, 장난을 좋아하고 강아지처럼 즐거워 보이는 견종입니다. 항상 주인 곁에 있고 싶어 할 만큼 외로움을 심하게 타기 때문에 매일 집을 비우는 가정에는 맞지 않습니다."
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="외형 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="머리는 쐐기 모양이고, 눈은 어두운 색으로 깊이 우묵하며, 표정이 지적입니다. 귀는 곧게 서고 끝이 둥글며, 몸통은 중간 정도의 길이로 늑골이 잘 발달되어 있습니다. 털은 2가지로서, 하모(下毛)는 조밀하고 두꺼우며 양털과 같이 부드러우나 표면의 털은 길고 다소 뻣뻣한데, 목둘레와 앞가슴의 털이 특히 우아합니다. 털빛깔은 흰색 외에 크림색, 옅은 갈색도 있습니다"
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="건강관리 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="관절질환에 걸리기 쉬우니 매일 아침저녁으로 30분 정도의 당김운동을 통해 다리와 허리를 단련시키면서 건강을 유지하는 것이 좋습니다. 또한 당뇨에도 걸리기 쉽기 때문에 항상 주의해야 합니다."
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+            //여기부터
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주의사항 : "
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+                <TextView
+                    android:id="@+id/Dval13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="썰매를 끌기 위해 같은 종끼리 생활을 많이 해왔기 때문에 서열 정하기에 민감하며 다른 견종에 대하여는 배타적입니다."
+                    android:textSize="20dp"
+                    android:textColor="#000">
+                </TextView>
+
+            </LinearLayout>/*여기까지*/
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
