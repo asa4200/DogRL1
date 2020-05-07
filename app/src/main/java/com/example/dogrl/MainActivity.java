@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
-    private int i = 1;
+    public int i = 1;
     ImageView nextimg;
     TextView ExText1;
     TextView ExText2;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (i==15){
-                    i = 1;
+                    i = 0;
                 }
 
 

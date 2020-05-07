@@ -146,9 +146,10 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="20dp"></TextView>
             <TextView
+                android:id="@+id/callnumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="010-7502-2166"
+                android:text="010-1234-0000"
                 android:textSize="20dp"
                 android:textColor="#000000"></TextView>
         </LinearLayout>
@@ -172,6 +173,7 @@
                 android:textColor="#000000"></TextView>
         </LinearLayout>
         <Button
+            android:id="@+id/callbutton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="입양 하기"
