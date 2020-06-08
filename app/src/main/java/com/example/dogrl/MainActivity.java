@@ -5,10 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,10 +28,16 @@ public class MainActivity extends AppCompatActivity {
     TextView ExText1;
     TextView ExText2;
     TextView ExText3;
+
+    boolean initem = false, inAge = false, inCareNm = false, inNoticeNo = false, inProcessState = false;
+    String age = null, careNm = null, noticeNo = null, processState = null;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Button ShowAnoderButton = findViewById(R.id.ShowAnoderButton);
         Button happybtn = findViewById(R.id.Happywaybutton);
@@ -33,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
         ExText2 = (TextView)findViewById(R.id.ExText2);
         ExText3 = (TextView)findViewById(R.id.ExText3);
 
+        StrictMode.enableDefaults();
+        SimpleDateFormat formatter = new SimpleDateFormat (
+                "yyyyMMdd", Locale.KOREA );
+        Date currentTime = new Date ( );
+        final String time = formatter.format ( currentTime );
+        final String ago = "20200601";
+
+        APIGO(ago,time);
 
         nextimg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,5 +203,88 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private void APIGO(String ago, String time){
+        Log.d("API","APIGO 시작");
+       try{
+
+
+           URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde="+ago+"&endde="+time+"&pageNo="+1+"&numOfRows=100&ServiceKey=1O5TyVjRbo1%2FC5JVf9%2FNZIV2D6FSMXBUZe0MVRTwYQBFnk2GFESxQSZ1zLoJkddQWKRSjJ0y78xRxZt0Zo0S2g%3D%3D&_returnType=json");
+
+
+           XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
+           XmlPullParser parser = parserCreator.newPullParser();
+
+           parser.setInput(url.openStream(), null);
+           int parserEvent = parser.getEventType();
+           System.out.println("파싱시작합니다.");
+
+            while (parserEvent != XmlPullParser.END_DOCUMENT) {
+
+                switch (parserEvent) {
+                    case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
+                        if (parser.getName().equals("age")) { //title 만나면 내용을 받을수 있게 하자
+                            inAge = true;
+                        }
+                        if (parser.getName().equals("careNm")) { //mapx 만나면 내용을 받을수 있게 하자
+                            inCareNm = true;
+                        }
+                        if (parser.getName().equals("noticeNo")) { //mapy 만나면 내용을 받을수 있게 하자
+                            inNoticeNo = true;
+                        }
+                        if (parser.getName().equals("processState")) { //mapy 만나면 내용을 받을수 있게 하자
+                            inProcessState = true;
+                        }
+                        if (parser.getName().equals("message")) { //message 태그를 만나면 에러 출력
+
+                            //여기에 에러코드에 따라 다른 메세지를 출력하도록 할 수 있다.
+                        }
+                        break;
+
+                    case XmlPullParser.TEXT://parser가 내용에 접근했을때
+                        if (inAge) { //isTitle이 true일 때 태그의 내용을 저장.
+                            age = parser.getText();
+                            inAge = false;
+                        }
+                        if (inCareNm) { //isMapx이 true일 때 태그의 내용을 저장.
+                            careNm = parser.getText();
+                            inCareNm = false;
+                        }
+                        if (inNoticeNo) { //isMapy이 true일 때 태그의 내용을 저장.
+                            noticeNo = parser.getText();
+                            inNoticeNo = false;
+                        }
+                        if (inProcessState) { //isMapy이 true일 때 태그의 내용을 저장.
+                            processState = parser.getText();
+                            inProcessState = false;
+                        }
+                        break;
+                    case XmlPullParser.END_TAG:
+                        Log.d("API","점검");
+
+                        if (parser.getName().equals("item")) {
+
+                            Log.d("API_Data", "나이 : " + age + "\n보호소명: " + careNm
+                                    + "공고번호" + noticeNo + "상태: " + processState
+                            );
+
+                            initem = false;
+                        }
+                        break;
+                }
+                parserEvent = parser.next();
+            }
+
+       }catch (Exception e){
+
+
+       }
+
+
+
+
+    }
 }
+
+
 
