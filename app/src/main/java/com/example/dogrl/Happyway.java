@@ -5,14 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class Happyway extends AppCompatActivity {
+
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +31,88 @@ public class Happyway extends AppCompatActivity {
         setContentView(R.layout.activity_happyway);
         final TextView callnumber = findViewById(R.id.callnumber);
         Button callbtn = findViewById(R.id.callbutton);
-        final String strCallNumber = (String) callnumber.getText();
+        ImageView hd1 = findViewById(R.id.hd1);
+        TextView noticeText = findViewById(R.id.noticeText);
+        TextView kindText = findViewById(R.id.kindText);
+        TextView ageText = findViewById(R.id.ageText);
+        TextView neutText = findViewById(R.id.neutText);
+        TextView careNmText = findViewById(R.id.careNmText);
+        TextView markText = findViewById(R.id.markText);
 
+        Intent intent = getIntent();
+        String data = intent.getStringExtra("data");
+
+        Log.d("data", data+"결과");
+
+        String dataArr[] = data.split("@#");
+
+        noticeText.setText(dataArr[0]);
+        kindText.setText(dataArr[7]);
+        ageText.setText(dataArr[1]);
+        neutText.setText(dataArr[5]);
+        careNmText.setText(dataArr[2]);
+        callnumber.setText(dataArr[6]);
+        markText.setText(dataArr[8]);
+
+        final String image = dataArr[3];
+        Thread mThread = new Thread() {
+
+            public void run() {
+
+
+
+                try {
+
+                    URL url = new URL(image);
+
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    conn.setDoInput(true);
+
+                    conn.connect();
+
+
+
+                    InputStream is = conn.getInputStream();
+
+                    bitmap = (Bitmap) BitmapFactory.decodeStream(is);
+
+
+
+
+
+                } catch (IOException ex) {
+
+
+
+                }
+
+            }
+
+        };
+
+
+
+        mThread.start();
+
+        try {
+
+            mThread.join();
+
+            hd1.setImageBitmap(bitmap);
+
+        } catch (InterruptedException e) {
+
+
+
+        }
 
 
         callbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                final String strCallNumber = (String) callnumber.getText();
                 AlertDialog.Builder alertdialog = new AlertDialog.Builder(Happyway.this);
                 alertdialog.setMessage(strCallNumber + "로 전화 하시겠습니까?");
 
